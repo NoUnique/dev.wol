@@ -7,7 +7,7 @@ version: '2.2'
 
 services:
   dev:
-    image: anjia0532/wakeonlan 
+    image: anjia0532/wakeonlan:v1.0
     container_name: wakeonlan
     volumes:
       - ../secret/wakeup-cache:/opt/wakeup/wakeup-cache

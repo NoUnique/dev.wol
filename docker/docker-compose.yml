@@ -10,7 +10,7 @@ services:
     image: anjia0532/wakeonlan:v1.0
     container_name: wakeonlan
     volumes:
-      - ../secret/wakeup-cache:/opt/wakeup/wakeup-cache
+      - ../secrets/wakeup-cache:/opt/wakeup/wakeup-cache
       - ../static/index.html:/opt/wakeup/static/index.html
       - ../static/app.js:/opt/wakeup/static/app.js
     restart: unless-stopped

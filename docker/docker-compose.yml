@@ -19,7 +19,7 @@ services:
       - traefik.enable=true
       - traefik.http.routers.${COMPOSE_IMAGE_NAME}.rule=PathPrefix(`/${COMPOSE_IMAGE_NAME}`)
       - traefik.http.services.${COMPOSE_IMAGE_NAME}.loadbalancer.server.port=9999
-      - traefik.http.routers.${COMPOSE_IMAGE_NAME}.middlewares=${COMPOSE_IMAGE_NAME}-redirect,${COMPOSE_IMAGE_NAME}-strip
+      - traefik.http.routers.${COMPOSE_IMAGE_NAME}.middlewares=basicauth@file,${COMPOSE_IMAGE_NAME}-redirect,${COMPOSE_IMAGE_NAME}-strip
       - traefik.http.middlewares.${COMPOSE_IMAGE_NAME}-strip.stripprefix.prefixes=/${COMPOSE_IMAGE_NAME}
       - traefik.http.middlewares.${COMPOSE_IMAGE_NAME}-redirect.redirectregex.regex=^(?:.*:\/\/)?([^:\/]*?\.[^\/]*).*\/${COMPOSE_IMAGE_NAME}$$
       - traefik.http.middlewares.${COMPOSE_IMAGE_NAME}-redirect.redirectregex.replacement=https://$${1}/${COMPOSE_IMAGE_NAME}/
